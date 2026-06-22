@@ -1,0 +1,22 @@
+name: Upload Artifact Workflow
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Show app.txt content
+        run: cat app.txt
+
+      - name: Upload app.txt as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-txt-file
+          path: app.txt
