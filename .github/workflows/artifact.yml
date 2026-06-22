@@ -15,8 +15,15 @@ jobs:
       - name: Show app.txt content
         run: cat app.txt
 
+      - name: Append new line to app.txt
+        run: echo "working with recommendation by kiran" >> app.txt
+
       - name: Upload app.txt as artifact
         uses: actions/upload-artifact@v4
+
+      - name: Show new app.txt content
+        run: cat app.txt
+
         with:
           name: app-txt-file
           path: app.txt
